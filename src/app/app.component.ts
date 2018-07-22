@@ -6,5 +6,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = '';
+  isDisabled = true;
+
+
+  arr:{name:string, age:number}[] = [
+    {
+      name:'Vasya',
+      age:23
+    },
+    {
+      name:'Petya',
+      age:35
+    }
+  ];
+
+  changeTitle(event: string){
+    console.log(event);
+    this.title = event;
+    if(this.title.length > 0){
+      this.isDisabled = false;
+    }else {
+      this.isDisabled = true;
+    }
+
+  }
+
+  addItem(item:string) {
+    this.arr.push({name:item,age:25});
+  }
 }
